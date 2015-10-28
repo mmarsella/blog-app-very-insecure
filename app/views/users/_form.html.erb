@@ -13,15 +13,11 @@
 
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_area :email %>
+    <%= f.text_field :email, size: "40" %>
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.text_area :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_digest %><br>
-    <%= f.text_area :password_digest %>
+    <%= f.text_field :password, size: "40" %>
   </div>
   <div class="actions">
     <%= f.submit %>
