@@ -1,28 +1,21 @@
-== README
+# Insecure Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A very insecure blog app that is designed to be attacked.
 
-Things you may want to cover:
+### Setup
 
-* Ruby version
+To start, don't look at the code.  Try to figure out as much as you can before looking at the code.
 
-* System dependencies
+```
+rake db:create
+rake db:migrate
+rake db:seed
+```
 
-* Configuration
+## Possible Attacks
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. __Brute force account access__.  The app was written with very bad password validation.  Try to write a script that will brute force the password.  __HINT__: Even though there is no link to all of the restful routes for a user, they are still accessible from the URL.  It may help you get the information you need.
+2. __Simple escalation of privileges__: Certain features of the app are not restricted properly.  Find out which features those are and prove that is exploitable.
+3. __Escalation of privileges++__: It is possible in the app to have admin power through signup.  Figure out how.
+4. __Session Hijacking__: There are many insecurities about the session.  Try decrypting the session.  What do you see?  What else about the session is not secure?
+5. __CSRF__: Prove that the site can be hacked with CSRF.
