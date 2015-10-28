@@ -20,3 +20,4 @@ rake db:seed
 3. __Escalation of privileges++__: It is possible in the app to have admin power through signup.  Figure out how.
 4. __Session Hijacking__: There are many insecurities about the session.  Try decrypting the session.  What do you see?  What else about the session is not secure?
 5. __CSRF__: Prove that the site can be hacked with CSRF.
+6. __SQL Injection__: Find a sql injection attack in the site
