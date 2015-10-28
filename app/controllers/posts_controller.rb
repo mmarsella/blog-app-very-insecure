@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     if current_user.admin?
       @search_results = Post.where("posts.content::text LIKE '%#{params[:search_term]}%'")
     else
-      @search_results = Post.where("posts.content::text LIKE '%#{params[:search_term]}%' && post.public = 1")
+      @search_results = Post.where("posts.content::text LIKE '%#{params[:search_term]}%' AND posts.public=true")
     end
   end
 
@@ -97,6 +97,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :public)
     end
 end
