@@ -8,7 +8,12 @@ class PostsController < ApplicationController
     if current_user.admin?
       @posts = Post.all
     else
-      @posts = current_user.posts.all
+      if current_user.id != params[:user_id]
+        @user = User.find_by(id: params[:user_id])
+        @posts = @user.posts
+      else
+        @posts = current_user.posts.all
+      end
     end
   end
 
@@ -85,7 +90,8 @@ class PostsController < ApplicationController
       if current_user.admin?
         @post = Post.find(params[:id])
       else
-        @post = current_user.posts.find(params[:id])
+        @post = current_user.posts.find_by(id: params[:id])
+        @post = Post.where(id: params[:id]).where(public: true).first unless @post
       end
     end
 

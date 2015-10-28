@@ -6,10 +6,15 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><h4><%= post.title %></h4><br />
+        <td><h4><%= post.title %>
+        <% unless post.public? %>
+          | <span style="color: red">private</span>
+        <% end %>
+        </h4><br />
         <%= post.content %>
+
         <% if current_user.admin? %>
-          <h6>Written by <%= current_user.email %></h6>
+          <h6>Written by <%= post.user.email %></h6>
         <% end %>
         </td>
         <td><%= link_to 'Show', post %><br />
@@ -22,9 +27,5 @@
 
 <br>
 
-<% if current_user.admin? %>
-  <%= link_to 'All Posts', user_posts_path(current_user) %>
-<% else %>
-  <%= link_to 'My Posts', user_posts_path(current_user) %>
-<% end %>
+
 <%= link_to 'New Post', new_user_post_path(current_user) %>
