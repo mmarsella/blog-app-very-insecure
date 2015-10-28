@@ -16,9 +16,7 @@ rake db:seed
 
 1. __Brute force account access__.  The app was written with very bad password validation.  Try to write a script that will brute force the password.  __HINT__: Even though there is no link to all of the restful routes for a user, they are still accessible from the URL.  It may help you get the information you need.
 
-
-
-
+     Answer:  See the attached password_crack.rb.  The admin's password is aa!
 
 
 2. __Password__: Something about the password create is not to secure.
@@ -37,7 +35,11 @@ Answer:  Creating a New User.  The input type for the password is text.  It woul
 
 4. __Session Hijacking__: There are many insecurities about the session.  Try decrypting the session.  What do you see?  What else about the session is not secure?
 
-  
 
 5. __CSRF__: Prove that the site can be hacked with CSRF.
+
+
+
 6. __SQL Injection__: Find a sql injection attack in the site
+
+
